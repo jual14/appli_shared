@@ -1,3 +1,8 @@
+.testconnect {
+  height: 10rem;
+  width: 10rem;
+  background-color: red; }
+
 /* to use rem size font 1rem is 10px */
 html {
   font-size: 62.5%; }
