@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+    <script src="/connect.js"></script>
+    <!-- Try jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+
+    <!-- Bootstrap Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- CDN Font-awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Roboto and Open Sans Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    <!-- Basic Style -->
+    <link rel="stylesheet" type="text/css" href="dist/css/style.css">
+    <!-- Meta media queries -->
+    <meta name="viewport" content="width=device-width" />
+    <!-- Favicon -->
+    <link rel="icon" href="src/img/logo.ico">
+
+    <meta charset="utf-8">
+    <title>Welcome to Firebase Hosting</title>
+
+    <!-- Datepicker/agenda -->
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script>
+
+      jQuery(function($){
+        $.datepicker.regional['fr'] = {
+            closeText: 'Fermer',
+            prevText: '&#x3c;Préc',
+            nextText: 'Suiv&#x3e;',
+            currentText: 'Courant',
+            monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin',
+            'Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+            monthNamesShort: ['Jan','Fév','Mar','Avr','Mai','Jun',
+            'Jul','Aoû','Sep','Oct','Nov','Déc'],
+            dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+            dayNamesShort: ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'],
+            dayNamesMin: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
+            weekHeader: '',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''};
+        $.datepicker.setDefaults($.datepicker.regional['fr']);
+    });
+
+      $( function() {
+        $( "#datepicker" ).datepicker({
+            // showOn: "button",
+            // buttonImage: "images/general/calendar.gif",
+            // buttonImageOnly: false,
+            changeMonth: true,
+            changeYear: true,
+            todayBtn: true,
+            showWeek: true,
+            beforeShowDay: function (date) {
+            if (date.getDay() == 0 || date.getDay() == 6) { // La semaine commence à 0 = Dimanche
+                return [false, ''];
+            } else {
+                return [true, ''];
+            }
+        },
+            showAnim: "show"
+        });
+      } );
+
+
+      </script>
+</head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <form action="">
+                    <fieldset>
+                        <div class="col-xs-12 agenda form-group" id="datepicker" required>
+                        </div>
+
+                        <div class="col-xs-12">
+                            <select name="" class="form-control">
+                                <option value="">Matin</option>
+                                <option value="">Après-midi</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-10 col-xs-offset-2">
+                                <a href=""><button type="submit" class="btn btn-primary" value="Passez à l'étape suivante">Passez à l'étape suivante</button></a>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

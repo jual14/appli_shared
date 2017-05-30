@@ -1,3 +1,25 @@
+h2 {
+  font-size: 2rem; }
+
+.header-signal .row .col-xs-12 .active {
+  background-color: #86A332;
+  color: #fff; }
+
+#ball {
+  float: right; }
+
+.btn-primary {
+  border-radius: 0.4rem;
+  background-color: #86A332;
+  border-color: #86A332;
+  color: #fff; }
+
+fieldset {
+  height: 70vh; }
+
+.ui-widget {
+  width: 100% !important; }
+
 /* to use rem size font 1rem is 10px */
 html {
   font-size: 62.5%; }
@@ -131,4 +153,5 @@ a:hover, a:active, a:focus {
   left: 21%;
   border-radius: 0.4rem;
   background-color: #86A332;
+  border-color: #86A332;
   color: #fff; }

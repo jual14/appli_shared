@@ -1,14 +1,98 @@
 [debug] ----------------------------------------------------------------------
-[debug] Command:      C:\Program Files\nodejs\node.exe C:\Users\Julien\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Users\Eugénie\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
 [debug] CLI Version:  3.5.0
 [debug] Platform:     win32
 [debug] Node Version: v6.9.5
-[debug] Time:         Sat May 13 2017 16:26:25 GMT+0200 (Paris, Madrid (heure d’été))
+[debug] Time:         Sat May 13 2017 17:06:40 GMT+0200 (Paris, Madrid (heure d’été))
 [debug] ----------------------------------------------------------------------
 [debug] 
 [info] Starting Firebase development server...
 [info] 
-[info] Project Directory: C:\Users\Julien\Desktop\appli_shared
+[info] Project Directory: C:\wamp\www\appli_shared\appli_shared
+[info] Public Directory: public
+[info] 
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Users\Eugénie\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.5.0
+[debug] Platform:     win32
+[debug] Node Version: v6.9.5
+[debug] Time:         Wed May 24 2017 21:11:40 GMT+0200 (Paris, Madrid (heure d’été))
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\wamp\www\appli_shared\appli_shared
+[info] Public Directory: public
+[info] 
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Users\Eugénie\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.5.0
+[debug] Platform:     win32
+[debug] Node Version: v6.9.5
+[debug] Time:         Thu May 25 2017 14:20:28 GMT+0200 (Paris, Madrid (heure d’été))
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\wamp\www\appli_shared\appli_shared
+[info] Public Directory: public
+[info] 
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Users\Eugénie\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.5.0
+[debug] Platform:     win32
+[debug] Node Version: v6.9.5
+[debug] Time:         Sun May 28 2017 12:00:46 GMT+0200 (Paris, Madrid (heure d’été))
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\wamp\www\appli_shared\appli_shared
+[info] Public Directory: public
+[info] 
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Users\Eugénie\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.5.0
+[debug] Platform:     win32
+[debug] Node Version: v6.9.5
+[debug] Time:         Mon May 29 2017 09:24:02 GMT+0200 (Paris, Madrid (heure d’été))
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\wamp\www\appli_shared\appli_shared
+[info] Public Directory: public
+[info] 
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Users\Eugénie\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.5.0
+[debug] Platform:     win32
+[debug] Node Version: v6.9.5
+[debug] Time:         Mon May 29 2017 14:20:50 GMT+0200 (Paris, Madrid (heure d’été))
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\wamp\www\appli_shared\appli_shared
+[info] Public Directory: public
+[info] 
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Users\Eugénie\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.5.0
+[debug] Platform:     win32
+[debug] Node Version: v6.9.5
+[debug] Time:         Tue May 30 2017 11:31:19 GMT+0200 (Paris, Madrid (heure d’été))
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\wamp\www\appli_shared\appli_shared
 [info] Public Directory: public
 [info] 
 [info] Server listening at: http://localhost:5000

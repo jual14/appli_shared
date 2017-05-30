@@ -1,4 +1,5 @@
 @import 'variable';
+@import 'eugenie';
 
 /* to use rem size font 1rem is 10px */
 html {
@@ -128,12 +129,13 @@ a {
 				border: 0.1rem solid $green-water;
 				border-radius: 0rem 0.4rem 0.4rem 0rem;
 			}
+
 		}
 	}
 }
 
 #mapholder {
-	height: 79vh !important;
+	height: 75vh !important;
 	width: 100vw !important;
 	position: relative;
 }
@@ -145,5 +147,10 @@ a {
 	left: 21%;
 	border-radius: 0.4rem;
 	background-color: $green-water;
+	border-color: $green-water;
 	color: $white;
 }
+
+	
+
+

@@ -1,0 +1,38 @@
+h2{
+	font-size: 2rem;
+}
+
+.header-signal{
+	.row{
+		.col-xs-12{
+			.active{
+				background-color: #86A332;
+			    color: #fff;
+			}
+		}
+	}
+}
+
+#ball{
+	float: right;
+}
+
+.btn-primary{
+	border-radius: 0.4rem;
+	background-color: $green-water;
+	border-color: $green-water;
+	color: $white;
+}
+fieldset{
+	height: 70vh;
+}
+
+.ui-widget{
+	width: 100%!important;
+}
+
+#mapholder {
+	height: 75vh !important;
+	width: 100vw !important;
+	position: relative;
+}
