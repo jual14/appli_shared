@@ -3,12 +3,98 @@
   width: 10rem;
   background-color: red; }
 
+/* Paste this css to your style sheet file or under head tag */
+/* This only works with JavaScript, 
+if it's not present, don't show loader */
+.no-js #loader {
+  display: none; }
+
+.js #loader {
+  display: block;
+  position: absolute;
+  left: 100px;
+  top: 0; }
+
+.se-pre-con {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+  background: url(../img/Preloader_3.gif) center no-repeat #fff; }
+
+.showbox {
+  position: absolute;
+  z-index: 999999;
+  top: 30%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5%; }
+
+.loader {
+  position: relative;
+  margin: 0 auto;
+  width: 100px; }
+
+.loader:before {
+  content: '';
+  display: block;
+  padding-top: 100%; }
+
+.circular {
+  animation: rotate 2s linear infinite;
+  height: 100%;
+  transform-origin: center center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 999; }
+
+.path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+  stroke-linecap: round; }
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg); } }
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0; }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px; }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px; } }
+
+@keyframes color {
+  100%,
+  0% {
+    stroke: #d62d20; }
+  40% {
+    stroke: #0057e7; }
+  66% {
+    stroke: #008744; }
+  80%,
+  90% {
+    stroke: #ffa700; } }
+
 /* to use rem size font 1rem is 10px */
 html {
   font-size: 62.5%; }
 
 body {
-  background-color: #fff;
+  background-color: #eee;
   font-family: 'Open Sans', sans-serif; }
 
 a:hover, a:active, a:focus {
@@ -65,7 +151,7 @@ a:hover, a:active, a:focus {
 
 .home-page .left-bg a {
   color: #86A332;
-  background-color: #fff;
+  background-color: #eee;
   border-radius: 0.4rem;
   transition: background-color 0.7s; }
 
@@ -73,7 +159,7 @@ a:hover, a:active, a:focus {
   background-color: #EDE75C; }
 
 .home-page .right-bg a {
-  color: #fff;
+  color: #eee;
   background-color: #86A332;
   border-radius: 0.4rem;
   transition: background-color 0.7s; }
@@ -100,7 +186,7 @@ a:hover, a:active, a:focus {
   line-height: 2.8rem; }
 
 .header-signal .row .col-xs-12 a {
-  background-color: #fff;
+  background-color: #eee;
   font-size: 1.6rem;
   color: #86A332;
   padding: 0.1rem 1rem;
@@ -110,7 +196,7 @@ a:hover, a:active, a:focus {
 
 .header-signal .row .col-xs-12 a:hover {
   background-color: #86A332;
-  color: #fff; }
+  color: #eee; }
 
 .header-signal .row .col-xs-12 .left {
   border: 0.1rem solid #86A332;
@@ -136,4 +222,4 @@ a:hover, a:active, a:focus {
   left: 21%;
   border-radius: 0.4rem;
   background-color: #86A332;
-  color: #fff; }
+  color: #eee; }

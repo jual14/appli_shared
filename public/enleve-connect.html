@@ -1,4 +1,111 @@
-<!--<script src="https://apis.google.com/js/platform.js" async defer></script>
-<meta name="google-signin-client_id" content="437539500685-sccv0tcm4gh4jr8928kn85fd3j5iisqh.apps.googleusercontent.com">
-<div class="g-signin2" data-onsuccess="onSignIn"></div>-->
-<div class="testconnect"></div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+   
+    <script src="connect.js"></script>
+     <script src="https://cdn.firebase.com/js/client/1.0.18/firebase.js"></script>
+    <!-- Try jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+
+    
+
+    <!-- Bootstrap Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- CDN Font-awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Roboto and Open Sans Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    <!-- Basic Style -->
+    <link rel="stylesheet" type="text/css" href="dist/css/style.css">
+    <!-- Meta media queries -->
+    <meta name="viewport" content="width=device-width" />
+    <!-- Favicon -->
+    <link rel="icon" href="src/img/logo.ico">
+
+    <meta charset="utf-8">
+    <title>Welcome to Firebase Hosting</title>
+
+</head>
+    <body>
+        <div class="container header-signal">
+            <div class="row">
+                <div class="col-xs-2 text-center">
+                    <a href="#null" onclick="javascript:history.back();"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                </div>
+                <div class="col-xs-8">
+                    Demander un enlèvement
+                </div>
+                <div class="col-xs-2 text-center">
+                    <a href="index.html"><i class="fa fa-home" aria-hidden="true"></i></a>
+                </div>
+                <div class="col-xs-12 text-center">
+                    <a href="#" id="enConnect" class="signal-ref left">Connexion</a>
+                    <a href="#" id="enInfo" class="signal-ref central">Informations</a>
+                    <a href="#" id="enAdress" class="signal-ref central">Adresse</a>
+                    <a href="#" id="enCalendar" class="signal-ref central">Calendrier</a>
+                    <a href="#" id="enValid" class="signal-ref right">Validation</a>
+                </div>        
+            </div>
+        </div>
+
+        <section>
+            <div class="signup">
+                <h2 class="signup-title">Sign up for alpha</h2>
+                <p id="signup-success" class="text-success"></p>
+                <p id="signup-error" class="text-danger"></p>
+                <form class="signup-form form-inline" id="signup-form" role="form" onsubmit="return signup(this)">
+                    <input class="form-control" name="email" type="email" placeholder="Your email. eg., joe@acme.com" required>
+                    <button class="btn btn-success" id="signup-button" type="submit" >Join now</button>
+                </form>
+            </div>
+        </section>
+
+<script>
+function registerUsername(email,password,displayName){
+            firebase.auth().createUserWithEmailAndPassword(email, password).then(function(value) {
+                console.log(value);
+                }).catch(function(error) {
+                    console.log(error);
+                });
+        };
+
+    var signupInfo = document.getElementById('enInfo');
+    var signupForm = document.getElementById('signup-form');
+    var signupSuccess = document.getElementById('signup-success');
+    var signupError = document.getElementById('signup-error');
+    var signupBtn = document.getElementById('signup-button');
+    var onSignupComplete = function(error) {
+      signupBtn.disabled = false;
+      if (error) {
+        signupError.innerHTML = 'Sorry. Could not signup.';
+      } else {
+        signupInfo.style.backgroundColor = 'blue';
+        // $('section').load('enleve-info.html');
+        signupSuccess.innerHTML = 'Thanks for signing up!';
+        //if email form is ok go to next page 
+        // hide the form
+        signupForm.style.display = 'none';
+      }
+    };
+    $('#signup-button').on('click', function(){
+        $('section').load('enleve-info.html');
+    });
+    function signup(formObj) {
+        // Store emails to firebase
+        var myFirebaseRef = new Firebase("https://appli-shared-6bf3d.firebaseio.com/signups");
+        myFirebaseRef.push({
+          email: formObj.email.value,
+        }, onSignupComplete);
+        signupBtn.disabled = true;
+        return false;
+    }
+    // $('#signup-button').on('click', function(){
+        
+    // });
+
+    </script>
+    </body>
+</html>
+

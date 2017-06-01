@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+    <script src="connect.js"></script>
+    <!-- Try jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+    <!-- Bootstrap Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- CDN Font-awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Roboto and Open Sans Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    <!-- Basic Style -->
+    <link rel="stylesheet" type="text/css" href="dist/css/style.css">
+    <!-- Meta media queries -->
+    <meta name="viewport" content="width=device-width" />
+    <!-- Favicon -->
+    <link rel="icon" href="src/img/logo.ico">
+
+    <meta charset="utf-8">
+    <title>Signaler un encombrant - </title>
+
+</head>
+<body>
+
+<div class="container header-signal">
+    <div class="row">
+        <div class="col-xs-2 text-center">
+            <a href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></div>
+        <div class="col-xs-8">
+            Signaler un encombrant
+        </div>
+        <div class="col-xs-2 text-center">
+            <a href="index.html"><i class="fa fa-home" aria-hidden="true"></i></a></div>
+        <div class="col-xs-12 text-center">
+            <a href="#" id="" class="signal-ref left">Lieu</a>
+            <a href="#" id="" class="signal-ref central active">Informations</a>
+            <a href="#" id="" class="signal-ref right">Finalisation</a>
+        </div>        
+    </div>
+</div>
+
+    <div>
+        <form id="my_form" class="form-horizontal well" method="post" action="process_form.php" enctype="multipart/form-data">
+            <fieldset>
+            
+            <div class="form-group" id="adress">
+                <div class="col-xs-12">
+                    <input type="text" class="form-control" name="ou" placeholder="">
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <h2>Type d'objets abandonnés</h2>
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <div class="col-xs-12">
+                            <label for="meuble">Meuble</label><input type="radio" name="meuble" id="ball">
+                        </div>
+                        <div class="col-xs-12">
+                            <label for="electromenager">Gros électroménager</label><input type="radio" name="electromenager" id="ball">
+                        </div>
+                        <div class="col-xs-12">
+                            <label for="canape">Canapé</label><input type="radio" name="canape" id="ball">
+                        </div>
+                        <div class="col-xs-12">
+                            <label for="literie">Literie</label><input type="radio" name="literie" id="ball">
+                        </div>
+                        <div class="col-xs-12">
+                            <label for="televiseur">Téléviseur</label><input type="radio" name="televiseur" id="ball">
+                        </div>
+                        <div class="col-xs-12">
+                            <label for="sanitaire">Equipement Sanitaire</label><input type="radio" name="sanitaire" id="ball">
+                        </div>
+                        <div class="col-xs-12">
+                            <label for="autre">Autre</label><input type="radio" name="autre" id="ball">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                            <div class="col-xs-12">
+                                <input type="file" class="form-control" name="image" accept="image/*">
+                            </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <div id="image_preview" class="col-xs-12">
+                            <div class="thumbnail hidden">
+                                <img src="http://placehold.it/5" alt="">
+                                    <div class="caption">
+                                        <p><button type="button" class="btn btn-default btn-danger">Annuler</button></p>
+                                    </div>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-10 col-xs-offset-2">
+                    <a href="signal3.html"><button type="submit" class="btn btn-primary" value="Passez à l'étape suivante">Passez à l'étape suivante</button></a>
+                </div>
+            </div>             
+        </fieldset>
+    </form>
+</div>
+
+</body>
+</html>
+
+<script>
+
+$(function () {
+    $('#my_form').on('submit', function (e) {
+        // On empêche le navigateur de soumettre le formulaire
+        e.preventDefault();
+ 
+        var $form = $(this);
+        var formdata = (window.FormData) ? new FormData($form[0]) : null;
+        var data = (formdata !== null) ? formdata : $form.serialize();
+ 
+        $.ajax({
+            url: $form.attr('action'),
+            type: $form.attr('method'),
+            contentType: false, // obligatoire pour de l'upload
+            processData: false, // obligatoire pour de l'upload
+            dataType: 'json', // selon le retour attendu
+            data: data,
+            success: function (response) {
+                // La réponse du serveur
+            }
+        });
+    });
+});
+
+    $(function () {
+    // A chaque sélection de fichier
+    $('#my_form').find('input[name="image"]').on('change', function (e) {
+        var files = $(this)[0].files;
+ 
+        if (files.length > 0) {
+            // On part du principe qu'il n'y qu'un seul fichier
+            // étant donné que l'on a pas renseigné l'attribut "multiple"
+            var file = files[0],
+                $image_preview = $('#image_preview');
+ 
+            // Ici on injecte les informations recoltées sur le fichier pour l'utilisateur
+            $image_preview.find('.thumbnail').removeClass('hidden');
+            $image_preview.find('img').attr('src', window.URL.createObjectURL(file));
+        }
+    });
+ 
+    // Bouton "Annuler" pour vider le champ d'upload
+    $('#image_preview').find('button[type="button"]').on('click', function (e) {
+        e.preventDefault();
+ 
+        $('#my_form').find('input[name="image"]').val('');
+        $('#image_preview').find('.thumbnail').addClass('hidden');
+    });
+});
+</script>
