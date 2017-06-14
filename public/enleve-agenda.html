@@ -1,0 +1,85 @@
+<script>
+jQuery(function($){
+    $.datepicker.regional['fr'] = {
+        closeText: 'Fermer',
+        prevText: '&#x3c;Préc',
+        nextText: 'Suiv&#x3e;',
+        currentText: 'Courant',
+        monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin',
+        'Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+        monthNamesShort: ['Jan','Fév','Mar','Avr','Mai','Jun',
+        'Jul','Aoû','Sep','Oct','Nov','Déc'],
+        dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+        dayNamesShort: ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'],
+        dayNamesMin: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
+        weekHeader: '',
+        dateFormat: 'dd/mm/yy',
+        firstDay: 1,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: ''};
+    $.datepicker.setDefaults($.datepicker.regional['fr']);
+    });
+
+    $( function() {
+        $( "#datepicker" ).datepicker({
+            // showOn: "button",
+            // buttonImage: "images/general/calendar.gif",
+            // buttonImageOnly: false,
+            changeMonth: true,
+            changeYear: true,
+            todayBtn: true,
+            showWeek: true,
+            beforeShowDay: function (date) {
+                if (date.getDay() == 0 || date.getDay() == 6) { // La semaine commence à 0 = Dimanche
+                    return [false, ''];
+                } else {
+                    return [true, ''];
+                }
+            },
+            showAnim: "show"
+        });
+    });
+</script>
+
+<div class="container-fluid">
+    <div class="row">
+        <form id="enleve_agenda" action="">
+            <fieldset>
+                <div class="col-xs-12 agenda form-group" id="datepicker" required>
+                </div>
+                <div class="col-xs-12">
+                    <select name="" class="form-control">
+                        <option value="am">Matin
+                        <option value="pm">Après-midi
+                    </select>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-10 col-xs-offset-2">
+                        <button type="submit" class="btn btn-primary" value="Passez à l'étape suivante">
+                            Valider
+                        </button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<script>
+$('#enleve_agenda').on('submit',function(e){
+    e.preventDefault()
+    var currentDate = $("#datepicker").datepicker({ dateFormat: 'dd,MM,yyyy' }).val();
+
+    $('#contest').load('enleve-valid.html', function(){
+        $("#spanDate").text(select);
+    });
+    var select=$('select').find('option:selected').text();
+    console.log(select);
+});
+</script>
+
+
+
+        
+      

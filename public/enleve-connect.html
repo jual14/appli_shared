@@ -1,16 +1,12 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
-   
-    <script src="connect.js"></script>
-     <script src="https://cdn.firebase.com/js/client/1.0.18/firebase.js"></script>
-    <!-- Try jQuery -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>
-
+<html lang="fr">
+<head>
     
-
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+    <script src="connect.js"></script>
+    <script src="https://cdn.firebase.com/js/client/1.0.18/firebase.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <!-- Bootstrap Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- CDN Font-awesome -->
@@ -23,89 +19,107 @@
     <meta name="viewport" content="width=device-width" />
     <!-- Favicon -->
     <link rel="icon" href="src/img/logo.ico">
-
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- Datepicker/agenda -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <!-- Datepicker/agenda -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <meta charset="utf-8">
     <title>Welcome to Firebase Hosting</title>
-
 </head>
-    <body>
-        <div class="container header-signal">
-            <div class="row">
-                <div class="col-xs-2 text-center">
-                    <a href="#null" onclick="javascript:history.back();"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
-                </div>
-                <div class="col-xs-8">
-                    Demander un enlèvement
-                </div>
-                <div class="col-xs-2 text-center">
-                    <a href="index.html"><i class="fa fa-home" aria-hidden="true"></i></a>
-                </div>
-                <div class="col-xs-12 text-center">
-                    <a href="#" id="enConnect" class="signal-ref left">Connexion</a>
-                    <a href="#" id="enInfo" class="signal-ref central">Informations</a>
-                    <a href="#" id="enAdress" class="signal-ref central">Adresse</a>
-                    <a href="#" id="enCalendar" class="signal-ref central">Calendrier</a>
-                    <a href="#" id="enValid" class="signal-ref right">Validation</a>
-                </div>        
+<body>
+    <div class="container header-signal">
+        <div class="row">
+            <div class="col-xs-2 text-center">
+                <a href="#null" onclick="goBack()"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
             </div>
+            <div class="col-xs-8">
+                Demander un enlèvement
+            </div>
+            <div class="col-xs-2 text-center">
+                <a href="index.html"><i class="fa fa-home" aria-hidden="true"></i></a>
+            </div>
+            <div class="col-xs-12 text-center">
+                <a href="#" id="enConnect" class="signal-ref left">
+                    <i class="fa fa-sign-in" aria-hidden="true"></i>
+                </a>
+                <a href="#" id="enInfo" class="signal-ref central">
+                    <i class="fa fa-truck" aria-hidden="true"></i>
+                </a>
+                <a href="#" id="enAdress" class="signal-ref central">
+                    <i class="fa fa-address-card-o" aria-hidden="true"></i>
+                </a>
+                <a href="#" id="enCalendar" class="signal-ref central">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                </a>
+                <a href="#" id="enValid" class="signal-ref right">
+                    <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                </a>
+            </div>        
         </div>
+    </div>
 
-        <section>
+    <div class="container enleve-connect" id="contest">
+        <div class="row text-center">
+            <h2>Identifiez vous</h2>
+            <div class="col-xs-6">
+                <a href="google-connect.html"><i class="red-google fa fa-google-plus-square" aria-hidden="true"></i></a>
+            </div>
+            <div class="col-xs-6">
+                <a href="facebook-connect.html"><i class="blue-facebook fa fa-facebook-square" aria-hidden="true"></i></a>
+            </div>
+            <h2>Ou</h2>
             <div class="signup">
-                <h2 class="signup-title">Sign up for alpha</h2>
                 <p id="signup-success" class="text-success"></p>
                 <p id="signup-error" class="text-danger"></p>
-                <form class="signup-form form-inline" id="signup-form" role="form" onsubmit="return signup(this)">
-                    <input class="form-control" name="email" type="email" placeholder="Your email. eg., joe@acme.com" required>
-                    <button class="btn btn-success" id="signup-button" type="submit" >Join now</button>
+                <form class="signup-form form-inline" id="signup-form" role="form">
+                    <input id="mail-value" class="form-control" name="email" type="email" placeholder="Your email. eg., joe@acme.com" required>
+                    <button class="connect-btn" id="signup-button" type="submit" >Join now</button>
                 </form>
             </div>
-        </section>
+        </div>
+    </div>
 
-<script>
-function registerUsername(email,password,displayName){
-            firebase.auth().createUserWithEmailAndPassword(email, password).then(function(value) {
-                console.log(value);
-                }).catch(function(error) {
-                    console.log(error);
-                });
+    <script>
+        //Return btn
+        function goBack() {
+            window.history.back();
         };
 
-    var signupInfo = document.getElementById('enInfo');
-    var signupForm = document.getElementById('signup-form');
-    var signupSuccess = document.getElementById('signup-success');
-    var signupError = document.getElementById('signup-error');
-    var signupBtn = document.getElementById('signup-button');
-    var onSignupComplete = function(error) {
-      signupBtn.disabled = false;
-      if (error) {
-        signupError.innerHTML = 'Sorry. Could not signup.';
-      } else {
-        signupInfo.style.backgroundColor = 'blue';
-        // $('section').load('enleve-info.html');
-        signupSuccess.innerHTML = 'Thanks for signing up!';
-        //if email form is ok go to next page 
-        // hide the form
-        signupForm.style.display = 'none';
-      }
-    };
-    $('#signup-button').on('click', function(){
-        $('section').load('enleve-info.html');
-    });
-    function signup(formObj) {
-        // Store emails to firebase
-        var myFirebaseRef = new Firebase("https://appli-shared-6bf3d.firebaseio.com/signups");
-        myFirebaseRef.push({
-          email: formObj.email.value,
-        }, onSignupComplete);
-        signupBtn.disabled = true;
-        return false;
-    }
-    // $('#signup-button').on('click', function(){
-        
-    // });
+        var signupInfo = document.getElementById('enInfo');
+        var signupForm = document.getElementById('signup-form');
+        var signupSuccess = document.getElementById('signup-success');
+        var signupError = document.getElementById('signup-error');
+        var signupBtn = document.getElementById('signup-button');
 
+        $('#signup-form').on('submit',function(e){
+            e.preventDefault();
+            // signupError.innerHTML = 'Sorry. Could not signup.';
+            // $('#contest').load('enleve-formulaire.html');
+            var emailValue = $('#mail-value').val();
+            console.log(emailValue);
+            
+            //Load enleve-formulaire in #contest div and keep mail values
+            $('#contest').load('enleve-formulaire.html', function(){
+                $("#data-connect").text(emailValue);
+            });
+            signupInfo.style.backgroundColor = '#86A332';
+            signupInfo.style.color = 'white';
+            signupSuccess.innerHTML = 'Thanks for signing up!';
+            // if email form is ok go to next page 
+            // hide the form
+            // signupForm.style.display = 'none';
+            signup( $(this) );
+        });
+
+        function signup(formObj) {
+            // Store emails to firebase
+            var myFirebaseRef = new Firebase("https://appli-shared-6bf3d.firebaseio.com/signups");
+            myFirebaseRef.push({
+            email: formObj.serialize(),
+            })
+        }
     </script>
-    </body>
+</body>
 </html>
 

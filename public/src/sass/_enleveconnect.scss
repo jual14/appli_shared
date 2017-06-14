@@ -1,5 +1,73 @@
-.testconnect {
-    height: 10rem;
-    width: 10rem;
+.enleve-connect {
+    .red-google {
+        color: #ea4436;
+        font-size: 10rem;
+        margin-top: 2rem;
+        margin-left: 2rem;
+    }
+    .blue-facebook {
+        color: #1e1b5b;
+        font-size: 10rem;
+        margin-top: 2rem;
+        margin-right: 2rem;
+    }
+    h2 {
+        font-size: 2rem;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+    }
+    .signup {
+        text-align: center;
+    }
+    .form-inline {
+        max-width: 100vw;
+        padding: 2rem;
+    }
+    .connect-btn {
+        color: #fff;
+        background-color: $green-water;
+        border-radius: 0.4rem;
+        transition: background-color 0.7s;
+        border: none;
+        padding: 0.5rem 2rem;
+        margin-top: 2rem;
+        &:hover {
+            &:hover, &:active, &:focus {
+				background-color: $tilleul;
+			}
+        }
+    }
+    .well {
+        background-color: inherit;
+        border: none;
+    }
+}
+.numero-input-size {
+    max-width: 30% !important;
+}
+.rue-input-size {
+    max-width: 70% !important;
+}
+.ville-input-size {
+    max-width: 40% !important;
+}
+.cp-input-size {
+    max-width: max-content !important;
+}
+.tel-input-size {
+    max-width: max-content !important;
+}
+.comp-input-size {
+    max-width: max-content !important;
+}
+#data-connect {
+    width: 20rem;
+    height: 20rem;
+    background-color: red;
+}
+#data-form {
+    width: 20rem;
+    height: 20rem;
     background-color: red;
 }

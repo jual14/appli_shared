@@ -1,0 +1,61 @@
+<form id="enleve_adress" class="form-horizontal well">
+        <fieldset>
+        
+        <div class="form-group">
+            <div class="col-xs-12">
+                <h2>Adresse</h2>
+                
+                    <div class="col-xs-12">
+                        <input type="text" name="numero" class="numero-input-size" placeholder="N°">
+                    
+                        <input type="text" name="rue" class="rue-input-size" placeholder="Rue">
+                    </div>
+                    <div class="col-xs-12">
+                        <input type="text" name="ville" class="ville-input-size" placeholder="Ville">
+                   
+                        <input type="text" name="code_postal" class="cp-input-size" placeholder="Code Postal">
+                    </div>
+                    <div class="col-xs-12">
+                        <input type="text" name="telephone" class="tel-input-size" placeholder="numéro de téléphone">
+                    </div>
+                    <div class="col-xs-12">
+                        <textarea class="complement-input-size" name="" id="" cols="30" rows="10"></textarea>
+                    </div>
+                
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-10 col-xs-offset-2">
+                <button type="submit" class="btn btn-primary" value="Passez à l'étape suivante">
+                    Passez à l'étape suivante
+                </button>
+            </div>
+        </div>             
+    </fieldset>
+</form>
+<div id="data-form"></div>
+
+<script>
+// $(document).on('click', 'input[type="submit"]', function(e) {
+//     e.preventDefault();
+//     $('#contest').load('enleve-agenda.html');
+// });
+var emailValue = $('#mail-value').val();
+console.log(emailValue);
+
+$('#enleve_adress').on('submit',function(e){
+    e.preventDefault();
+    // $('#contest').load('enleve-agenda.html');
+    // $('#contest').load('enleve-agenda.html', function(){
+    //     console.log('#data-connect');
+    //     // $("#data-connect").text('Yes !' + emailValue);
+    // });
+    var serial = $(this).serialize();
+    $('#contest').load('enleve-agenda.html', function(){
+        // $("#data-form").text('Yes !' + dataForm + tryValue);
+        // console.log(dataForm);
+        // console.log(tryValue);
+        console.log(serial);
+    });
+});
+</script>
